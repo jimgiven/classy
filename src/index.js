@@ -7,8 +7,12 @@ const classyGenerator = (Component, baseComponent = false) => {
   return (classStrings, ...classExpressions) => {
     const classyComponent = (props, ref) => {
       let className = classStrings[0]
-      classExpressions.forEach((expresion, index) => {
-        className += expresion(props)
+      classExpressions.forEach((expression, index) => {
+        if (typeof expression === 'function') {
+          className += expression(props)
+        } else {
+          className += expression
+        }
         className += classStrings[index]
       })
 
