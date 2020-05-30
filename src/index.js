@@ -29,11 +29,16 @@ const classyGenerator = (Component, baseComponent = false) => {
         validProps = props
       }
 
-      return (
-        <Component className={className} ref={ref} {...validProps}>
-          {props.children}
-        </Component>
+      return React.createElement(
+        Component,
+        {
+          className: className,
+          ref: ref,
+          ...validProps
+        },
+        props.children
       )
+
     }
 
     const baseName = Component.displayName || Component.name || Component
