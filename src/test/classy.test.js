@@ -32,6 +32,16 @@ describe('<ClassBaseComponent/>', () => {
   })
 })
 
+const ClassyPassThroughComponent = classy.div`test-class`
+
+describe('<ClassyPassThrouhgComponent/>', () => {
+  it('renders a component with classy classes and passed in classes', () => {
+    const wrapper = render(<ClassyPassThroughComponent className={'passed-class'}/>)
+    expect(wrapper.hasClass('test-class')).toBeTruthy()
+    expect(wrapper.hasClass('passed-class')).toBeTruthy()
+  })
+})
+
 const ConditionalComponent = classy.div`
   ${props => props.secretClass}
 `

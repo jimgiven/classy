@@ -16,6 +16,10 @@ const classyGenerator = (Component, baseComponent = false) => {
         className += classStrings[index]
       })
 
+      if (props['className']) {
+        className += ` ${props['className']}`
+      }
+
       let validProps = {}
 
       if (baseComponent) {
@@ -32,9 +36,9 @@ const classyGenerator = (Component, baseComponent = false) => {
       return React.createElement(
         Component,
         {
-          className: className,
+          ...validProps,
           ref: ref,
-          ...validProps
+          className: className,
         },
         props.children
       )
