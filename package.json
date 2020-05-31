@@ -1,6 +1,6 @@
 {
   "name": "@jimgiven/classy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CSS-in-JSX for classed based styling",
   "main": "src/index.js",
   "author": "Jim Given",
